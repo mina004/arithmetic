@@ -29,5 +29,3 @@ repos:
         env:
           PYTHONDONTWRITEBYTECODE: "1"   # stop __pycache__ / *.pyc
           COVERAGE_FILE: ".git/.coverage" # keep coverage DB inside .git
-
-

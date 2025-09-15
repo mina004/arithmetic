@@ -42,4 +42,3 @@ convention = "google"
 ]
 [tool.ruff.lint.mccabe]
 max-complexity = 10
-
