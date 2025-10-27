@@ -1,6 +1,7 @@
-# src/arithmetic/arithmetic.py
+"""Arithmetic functions used in the assignment."""
 
-from typing import Optional
+from __future__ import annotations
+
 
 def add_numbers(a: int, b: int) -> int:
     """Return the sum of two integers."""
