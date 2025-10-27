@@ -1,46 +1,37 @@
-"""arithmetic functions."""
+# src/arithmetic/arithmetic.py
 
-from __future__ import annotations
-
+from typing import Optional
 
 def add_numbers(a: int, b: int) -> int:
-    """Return the sum of two integers.
-
-    Args:
-        a: first integer
-        b: second integer
-
-    Returns:
-        Sum of a and b.
-    """
-    raise NotImplementedError
+    """Return the sum of two integers."""
+    return a + b
 
 
 def factorial(n: int) -> int:
-    """Compute the factorial of n.
-
-    Args:
-        n: non-negative integer
-
-    Returns:
-        n! as int
+    """Compute n! for a non-negative integer n.
 
     Raises:
-        ValueError: if n is negative
+        ValueError: if n is negative.
     """
-    raise NotImplementedError
+    if n < 0:
+        raise ValueError("factorial is undefined for negative integers")
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
 
 
 def is_prime(n: int) -> bool:
-    """Check whether n is a prime number.
-
-    A prime number is an integer greater than 1 that has no positive
-    divisors other than 1 and itself.
-
-    Args:
-        n: integer to test
-
-    Returns:
-        True if n is prime; otherwise False.
-    """
-    raise NotImplementedError
+    """Return True if n is prime, else False."""
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
