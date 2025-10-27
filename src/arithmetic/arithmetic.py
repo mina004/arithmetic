@@ -1,4 +1,8 @@
 # src/arithmetic/arithmetic.py
+"""Arithmetic functions used in the assignment."""
+
+from __future__ import annotations
+
 
 def add_numbers(a: int, b: int) -> int:
     """Return the sum of two integers."""
@@ -12,10 +16,10 @@ def factorial(n: int) -> int:
         ValueError: if n is negative.
     """
     if n < 0:
-        raise ValueError("n must be non-negative")
+        raise ValueError("factorial is undefined for negative integers")
     result = 1
-    for k in range(2, n + 1):
-        result *= k
+    for i in range(2, n + 1):
+        result *= i
     return result
 
 
@@ -24,14 +28,12 @@ def is_prime(n: int) -> bool:
     if n <= 1:
         return False
     if n <= 3:
-        return True  # 2 and 3
-    if n % 2 == 0:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
         return False
-    # check odd divisors up to sqrt(n)
-    i = 3
-    limit = int(n**0.5) + 1
-    while i <= limit:
-        if n % i == 0:
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
             return False
-        i += 2
+        i += 6
     return True
